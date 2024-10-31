@@ -18,14 +18,15 @@ const getBook = require("../controllers/getBook");
 // import a function to delete all books = deleteAllBooks.js
 const deleteAll = require("../controllers/deleteAllBooks");
 const checkPassword = require("../../middleware/checkPassword");
+const checkToken = require("../../middleware/checkToken");
 
 
-bookRouter.post("/addBook", checkPassword, addBook);
-bookRouter.post("/listAllBooks",checkPassword, listBooks);
-bookRouter.put("/updateAuthor", checkPassword, upAuthor);
-bookRouter.put("/updateGenre", checkPassword, upGenre);
-bookRouter.delete("/deleteBook", checkPassword, deleteBook);
-bookRouter.delete("/deleteAllBooks", checkPassword, deleteAll);
+bookRouter.post("/addBook", checkToken, addBook);
+bookRouter.post("/listAllBooks",checkToken, listBooks);
+bookRouter.put("/updateAuthor", checkToken, upAuthor);
+bookRouter.put("/updateGenre", checkToken, upGenre);
+bookRouter.delete("/deleteBook", checkToken, deleteBook);
+bookRouter.delete("/deleteAllBooks", checkToken, deleteAll);
 bookRouter.get("/getBook", getBook);
 
 module.exports = bookRouter;
